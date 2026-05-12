@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+
+    <script>
+
+        function calc_media(n1,n2) {  //vai fazer o calculo da media, nota 1 e nota 2.// 
+            return(n1 + n2) / 2;
+
+        }
+
+        function resultado(form) {
+            var n1 = parseFloat(form.nota1.value);
+            var n2 = parseFloat(form.nota2.value);
+       
+            if (isNaN(n1) || isNaN(n2)) {  //vai verificar se as notas são validas de nota1 e nota2 se são fracionadas ou erros//
+                alert("Digite valores válidos nas notas!");
+                return;
+            }
+
+            var media = calc_media(n1, n2).toFixed(1);
+
+            if (media >= 7) {
+                alert("Aprovado! Média:" + media);
+            } else {
+                alert("Recuperação! Média:" + media);
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+    <h1>Sistema Acadêmico</h1>
+
+    <form name="meuform">
+
+        Matrícula: <input type="text" name="matricula" required placeholder="Digite aqui sua matricula"> <br><br>
+        Nome: <input type="text" name="nome_aluno" required placeholder="Digite aqui seu nome"> <br><br>
+        Data nascimento: <input type="date" name="nasc_aluno" required> <br><br>
+
+        Sexo: <br>
+        <input type="radio" name="Sexo" value="masculino" required> Masculino
+        <input type="radio" name="Sexo" value="feminino" required> Feminino <br> <br>
+
+        Nota 1: <input type="number" name="nota1" step="0.1" required><br><br>
+        Nota 2: <input type="number" name="nota2" step="0.1" required><br><br>
+
+        <input type="button" value="Calcular Média" onclick="resultado(this.form)">
+
+    </form>
+    
+</body>
+</html>
